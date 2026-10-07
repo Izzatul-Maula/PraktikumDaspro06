@@ -10,3 +10,24 @@ public class StudyKasus06 {
         jumlahCup = sc.nextInt();
         System.out.print("Jumlah Bayar: ");
         uangBayar = sc.nextInt();
+        
+        totalHarga = jumlahCup * hargaPercup;
+        diskon = 0;
+         if (totalHarga >= 100000){
+        }
+            diskon = totalHarga * 10 / 100;
+            totalBayar = totalHarga - diskon;
+            System.out.println("Total harga: Rp." + totalHarga);
+            System.out.println("Diskon: " + diskon);
+            System.out.println("Total bayar: Rp." + totalBayar);
+            if (uangBayar >= totalBayar){
+                kembalian = uangBayar - totalBayar;
+                System.out.println("Kembalian: Rp." + kembalian);
+            }else{
+                kurang = totalBayar - uangBayar;
+                System.out.println("Uang anda kurang: Rp." + kurang);
+            }
+         
+    }
+}
+
