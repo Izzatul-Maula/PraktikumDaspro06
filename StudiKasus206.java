@@ -3,34 +3,51 @@ import java.util.Scanner;
 public class StudiKasus206 {
     public static void main(String args []) {
         Scanner sc = new Scanner(System.in);
-        int jenis, juara, jumlahDokumen, kurang, statusPkm;
-        String namaMahasiswa;
+        int juara, jumlahDokumen, kurang, statusPkm;
+        String namaMahasiswa, jenis;
 
-        System.out.println("Nama Mahasiswa: ");
+        System.out.print("Nama Mahasiswa: ");
         namaMahasiswa = sc.nextLine();
-        System.out.println("Pilihan Jenis Kegiatan");
-        System.out.println("1. Lomba (BELMAWA, BAKORMA, MANDIRI)");
-        System.out.println("2. Program Kreatifitas Mahasiswa (PKM)");
-        System.out.println("3.Lainnya)");
-        System.out.println("Masukkan pilihan kegiatan (1,2,3): ");
-        jenis = sc.nextInt();
-        if (jenis == 1 || jenis == 2 || jenis == 3){
-            System.out.println("Masukkan peringkat juara (1-4): ");
+        
+        System.out.print("Masukkan pilihan kegiatan (BELMAWA, BAKORMA, Mandiri, PKM, atau Lainnya): ");
+        jenis = sc.nextLine();
+
+        System.out.print("Jumlah dokumen yang sudaf dikumpulkan ke siakad (0-4): ");
+        jumlahDokumen = sc.nextInt();
+
+       if (jenis.equalsIgnoreCase("BELMAWA") || 
+            jenis.equalsIgnoreCase("BAKORMA") || 
+            jenis.equalsIgnoreCase("MANDIRI")) {
+            System.out.print("Peringkat juara : ");
             juara = sc.nextInt();
-            if (juara ==1 || juara == 2 || juara == 3 || juara == 4){
-                System.out.println("Masukkan jumlah dokumen yang sudah dikumpulkan ke siakad (0-4): ");
-                jumlahDokumen = sc.nextInt();
-                if (jumlahDokumen == 4){
-                    System.out.println("Selamat, anda berhak mendapatkan sertifikat dan dana penghargaan");
+            if (jumlahDokumen == 4) {
+                if (juara >= 1 && juara <= 3) {
+                    System.out.println("Status : Dokumen lengkap. Selamat! Anda mendapatkan dana penghargaan.");
                 } else {
-                    kurang = 4 - jumlahDokumen;
-                    System.out.println("Maaf, anda belum melengkapi persyaratan dokumen diSIAKAD");
+                    System.out.println("Status : Dokumen lengkap. Namun, dana penghargaan hanya diberikan untuk Juara 1, 2, atau 3.");
                 }
             } else {
-                System.out.println("Maaf, Dana penghargaan hanyaa diberikkan kepada pendanaan");
+                kurang = 4 - jumlahDokumen;
+                System.out.println("Status : Dokumen tidak lengkap (kurang " + kurang + " dokumen). Dana penghargaan tidak diberikan.");
+            }    
+        } else if (jenis.equalsIgnoreCase("PKM")) {
+
+            System.out.print("Status pendanaan PKM (1 = lolos, 0 = tidak lolos) : ");
+            statusPkm = sc.nextInt();
+
+            if (jumlahDokumen == 4) {
+                if (statusPkm == 1) {
+                    System.out.println("Status : Dokumen lengkap. Selamat! Tim PKM lolos pendanaan dan berhak menerima dana penghargaan.");
+                } else {
+                    System.out.println("Status : Dokumen lengkap. Namun, tim tidak lolos pendanaan sehingga dana penghargaan tidak diberikan.");
+                }
+            } else {
+                kurang = 4 - jumlahDokumen;
+                System.out.println("Status : Dokumen tidak lengkap (kurang " + kurang + " dokumen). Dana penghargaan tidak diberikan.");
             }
-        } else {
-            System.out.println("Maaf, pilihan kegiatan tidak valid");
+            
+                
         }
     }
+    
 }
