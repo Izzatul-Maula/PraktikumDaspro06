@@ -30,7 +30,11 @@ public class StudiKasus206 {
                 kurang = 4 - jumlahDokumen;
                 System.out.println("Status : Dokumen tidak lengkap (kurang " + kurang + " dokumen). Dana penghargaan tidak diberikan.");
             }    
-        } else if (jenis.equalsIgnoreCase("PKM")) {
+        } else {
+            System.out.println("Tidak ada dana penghargaan untuk kegiatan ini");
+        }
+            
+        if (jenis.equalsIgnoreCase("PKM")) {
 
             System.out.print("Status pendanaan PKM (1 = lolos, 0 = tidak lolos) : ");
             statusPkm = sc.nextInt();
