@@ -19,9 +19,7 @@ import java.util.Scanner;
             } else {
                 totalBayar = jumlahBeli * hargaPaket;
                 System.out.print("Total Pembayaran Paket Data: " + totalBayar);
-
             }
-            
             
         }
     }
